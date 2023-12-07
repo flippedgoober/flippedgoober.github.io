@@ -1,0 +1,194 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font setup */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #121317; /* Dark background color */
+    color: #336EFF; /* Blueish fill-in text color */
+}
+
+/* Main content styles */
+.main-content {
+    padding: 10px;
+    color: #336EFF; /* Blueish fill-in text color */
+}
+
+/* Container for the exercise section */
+.exercise-container {
+    background: #20232a; /* Darker gray background color */
+    border-radius: 10px; /* Rounded corners for the container */
+    padding: 15px;
+    margin-bottom: 20px; /* Space between containers */
+}
+
+/* Exercise header within the container */
+.exercise-header {
+    color: #FFFFFF; /* White-ish header text color */
+    font-size: 1.75em; /* Example size for headers */
+}
+
+/* Styles for the exercise instructions text */
+.exercise-instructions {
+    color: #FFFFFF; /* Same white color as exercise header */
+    font-size: 0.9em; /* Slightly smaller than the exercise title */
+    margin-bottom: 25px; /* Spacing between the instructions and the sets */
+}
+
+/* Styles for the overall container of sets */
+.sets-container {
+    counter-reset: set-counter; /* Create a new instance of the counter */
+}
+
+/* Style each set as a list item */
+.set {
+    counter-increment: set-counter; /* Increment the counter for each set */
+    list-style: none; /* Remove default list styling */
+    position: relative; /* To position the set number */
+    padding-left: 40px; /* Make room for the set number */
+    margin-bottom: 10px; /* Space between sets */
+}
+
+/* Circle-element for the set numbers */
+.set:before {
+    content: counter(set-counter); /* Display the current counter number */
+    position: absolute;
+    left: 0; /* Align to the left side */
+    top: 0; /* Align to the top of the list item */
+    height: 25px;
+    width: 25px;
+    background-color: #121317; /* Mid gray background color */
+    border-radius: 50%; /* Circular shape */
+    text-align: center;
+    line-height: 25px; /* Vertically center the text */
+    color: #336EFF; /* Blue text */
+}
+
+/* Styling for the rounded edge rectangles around the weight x reps x RPE */
+.rep-info {
+    background-color: #121317; /* Dark background color */
+    border-radius: 10px; /* Rounded corners for the rep info */
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    color: #2F63E2; /* Blue text */
+    cursor: pointer; /* Indicates clickable element */
+}
+
+/* Prompt styling */
+.prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #20232a; /* Matching exercise container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Make sure it's on top of other elements */
+    color: #FFFFFF; /* Text color for the prompt */
+    font-family: 'Arial', sans-serif; /* Match body font */
+    text-align: center; /* Center the text inside the prompt */
+}
+
+/* Styles for the select dropdown within the prompt */
+.prompt select {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #121317; /* Dark background color */
+    color: #2F63E2; /* Blue text color */
+    border: 1px solid #336EFF; /* Blue border */
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Styles for the number input within the prompt */
+.prompt input[type="number"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #121317; /* Darker background for input */
+    color: #2F63E2; /* Blue text color to match the scheme */
+    border: 1px solid #336EFF; /* Blue border to match the scheme */
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Styles for buttons within the prompt */
+.prompt button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #336EFF; /* Blue background for buttons */
+    color: #FFFFFF; /* White text color for buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.prompt button:hover {
+    background-color: #1d1f25; /* Darken background on hover */
+    color: #4574e5; /* Lighten text color on hover */
+}
+
+/* Footer styles */
+footer {
+    background: #20232a; /* Dark gray footer background color */
+    color: #FFFFFF; /* White-ish footer text color */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Style for the swap buttons */
+.swap-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.swap-btn:hover {
+    background-color: #45a049;
+}
+
+.exercise-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exercise-header {
+    flex-grow: 1;
+}
+
+/* Hover and active states for .rep-info and .add-set buttons */
+.rep-info:hover, .add-set:hover {
+    background-color: #1d1f25; /* Example hover color */
+    color: #4574e5; /* Example hover text color */
+}
+
+.rep-info:active, .add-set:active {
+    background-color: #1d1f25; /* Darker background color for active state */
+    color: #4574e5; /* Lighter text color for active state */
+}
+
+/* Specific hover and active states for .add-set to avoid entire row highlight */
+.add-set:hover > .rep-info, .add-set:active > .rep-info {
+    background-color: #1d1f25; /* Darken button background on hover/click */
+    color: #4574e5; /* Change text color on hover/click */
+}
+
+/* Ensure the hover and active states are not applied to the list item */
+.set:hover, .set:active {
+    background-color: transparent; /* Clear any hover or active state styles */
+}
