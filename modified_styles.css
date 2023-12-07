@@ -104,6 +104,17 @@ body {
     border: 1px solid #336EFF; /* Blue border */
     border-radius: 4px;
     font-size: 1em;
+    width: 100%; /* Make the dropdown full width within the prompt */
+    -webkit-appearance: none; /* Removes default styling in WebKit browsers */
+    -moz-appearance: none; /* Removes default styling in Firefox */
+}
+
+/* Optionally, add a custom arrow indicator for the select dropdown */
+.prompt select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232F63E2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px top 50%;
+    background-size: 12px;
 }
 
 /* Styles for the number input within the prompt */
@@ -115,6 +126,13 @@ body {
     border: 1px solid #336EFF; /* Blue border to match the scheme */
     border-radius: 4px;
     font-size: 1em;
+    -moz-appearance: textfield; /* Removes spinner in Firefox */
+}
+
+.prompt input[type="number"]::-webkit-outer-spin-button,
+.prompt input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Removes spinner in Chrome, Edge, and Safari */
 }
 
 /* Styles for buttons within the prompt */
@@ -171,6 +189,29 @@ footer {
     flex-grow: 1;
 }
 
+/* Specific styles for the .add-set list item */
+.add-set {
+    display: flex; /* Use flex layout to align the button to the left */
+    justify-content: flex-start; /* Align the button to the left */
+}
+
+/* Styles for the .rep-info within .add-set to ensure correct styling and functionality */
+.add-set .rep-info {
+    cursor: pointer; /* Ensure the cursor changes to pointer only over the button */
+    padding: 5px 10px; /* Adjust padding as needed */
+}
+
+/* Hover and active states for .add-set */
+.add-set .rep-info:hover {
+    background-color: #1d1f25; /* Example hover color */
+    color: #4574e5; /* Example hover text color */
+}
+
+.add-set .rep-info:active {
+    background-color: #1d1f25; /* Darker background color for active state */
+    color: #4574e5; /* Lighter text color for active state */
+}
+
 /* Hover and active states for .rep-info and .add-set buttons */
 .rep-info:hover, .add-set:hover {
     background-color: #1d1f25; /* Example hover color */
@@ -180,12 +221,6 @@ footer {
 .rep-info:active, .add-set:active {
     background-color: #1d1f25; /* Darker background color for active state */
     color: #4574e5; /* Lighter text color for active state */
-}
-
-/* Specific hover and active states for .add-set to avoid entire row highlight */
-.add-set:hover > .rep-info, .add-set:active > .rep-info {
-    background-color: #1d1f25; /* Darken button background on hover/click */
-    color: #4574e5; /* Change text color on hover/click */
 }
 
 /* Ensure the hover and active states are not applied to the list item */
