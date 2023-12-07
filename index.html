@@ -23,15 +23,15 @@
                 <div id="tfl-pulls-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
               </li>
               <!-- The '+ add' button -->
-              <li class="set add-set" onclick="addSet('tfl-pulls-sets')">
-                  <div class="rep-info">+ Add Set</div>
+              <li class="set add-set">
+                  <div class="rep-info" onclick="addSet('tfl-pulls-sets')">+ Add Set</div>
               </li>
           </ul>
       </div>
 
 
 
-        <!-- Exercise Block for MU -->
+        <!-- Exercise Block for Ring MU -->
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="ring-mu-header">Ring MU</div>
@@ -45,26 +45,163 @@
                   <div id="ring-mu-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
                 </li>
                 <!-- The '+ add' button -->
-                <li class="set add-set" onclick="addSet('ring-mu-sets')">
-                    <div class="rep-info">Add Set</div>
+                <li class="set add-set">
+                    <div class="rep-info"  onclick="addSet('ring-mu-sets')">+ Add Set</div>
                 </li>
             </ul>
         </div>
 
+        <!-- Exercise Block for Bar MU -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="bar-mu-header">Bar MU</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">20-30 Reps</div>
+<!-- Instructions added here -->
+            <ul class="sets-container" id="bar-mu-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="bar-mu-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('bar-mu-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Block for 1 Arm PU -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="OAPU-header">1-Arm PU</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">3-4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="OAPU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="OAPU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('OAPU-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Block for L-Sit High PU -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="LSit-HPU-header">L-Sit High PU</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">3-4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="LSit-HPU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="LSit-HPU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('LSit-HPU-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Block for Pull Ups -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="PU-header">Pull Ups</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">3-4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="PU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="PU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('PU-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Block for Inverted Rows -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="IR-header">Inverted Rows</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">3 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="IR-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="IR-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('IR-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Block for Scapula Pull Ups -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="SCPU-header">Scapula Pull Ups</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">3 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="SCPU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="SCPU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('SCPU-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Block for Skin the Rat -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="STR-header">Skin the Rat</div>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+          </div>
+          <div class="exercise-instructions">2 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="STR-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="STR-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('STR-sets')">+ Add Set</div>
+                </li>
+            </ul>
+        </div>
+
+        <button id="reset-button">Reset</button>
+
         <!-- Add more exercises as needed -->
     </div>
 
-    <footer>
-        <p>Footer Content</p>
-    </footer>
 
     <script src="modified_scripts.js"></script>
 
 </body>
 </html>
 
-    <!-- Adjustable Parameters for Exercise Swaps -->
-    <div id="swap-params" style="display: none;">
-        <div id="param-tfl-pulls" data-swap-exercise="heat" data-swap-sets="3" data-swap-reps="10-12"></div>
-        <div id="param-ring-mu" data-swap-exercise="cold" data-swap-sets="5" data-swap-reps="8-10"></div>
+
+
     </div>
