@@ -240,3 +240,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Add the reset button functionality
 document.getElementById('reset-button').addEventListener('click', resetWorkout);
+
+function removeSet(buttonElement, containerId) {
+    const container = document.getElementById(containerId);
+    if (container.children.length > 1) {  // Assuming there's always an 'Add Set' button and at least one set
+        container.removeChild(container.children[container.children.length - 2]); // Remove the second-last child (last set)
+        saveWorkoutState(); // Save the updated state
+    }
+}
