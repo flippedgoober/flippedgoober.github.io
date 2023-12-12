@@ -246,3 +246,33 @@ footer {
     color: #336EFF; /* Consistent text color */
     font-size: 20px; /* Adjust font size as needed */
 }
+
+.prompt .rep-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0; /* Adjust spacing as needed */
+}
+
+.prompt .rep-controls button {
+    font-size: 1.5rem; /* Adjust size as needed */
+    width: 35px; /* Adjust width as needed */
+    height: 35px; /* Adjust height as needed */
+    line-height: 35px; /* Center the text vertically */
+    margin: 0 10px; /* Space out the buttons */
+    /* Additional styling for buttons (background, color, border, etc.) */
+}
+
+.prompt .rep-controls #rep-count {
+    font-size: 1.5rem; /* Match the button text size */
+    min-width: 50px; /* Adjust width as needed */
+    text-align: center;
+    /* Additional styling for the rep count (color, etc.) */
+}
+
+.prompt .prompt-title {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    color: #FFFFFF; /* Adjust the color as needed */
+    margin-bottom: -10px; /* Space between the title and the rep controls */
+    text-align: center;
+}
