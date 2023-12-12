@@ -89,7 +89,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #20232a; /* Matching exercise container background */
-    padding: 200px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000; /* Make sure it's on top of other elements */
@@ -255,11 +255,12 @@ footer {
 }
 
 .prompt .rep-controls button {
-    font-size: 1.5rem; /* Adjust size as needed */
-    width: 35px; /* Adjust width as needed */
-    height: 35px; /* Adjust height as needed */
-    line-height: 35px; /* Center the text vertically */
+    font-size: 2.5rem; /* Adjust size as needed */
+    width: 55px; /* Adjust width as needed */
+    height: 45px; /* Adjust height as needed */
+    line-height: 30px; /* Center the text vertically */
     margin: 0 10px; /* Space out the buttons */
+    border-radius: 10px;
     /* Additional styling for buttons (background, color, border, etc.) */
 }
 
@@ -275,4 +276,19 @@ footer {
     color: #FFFFFF; /* Adjust the color as needed */
     margin-bottom: -10px; /* Space between the title and the rep controls */
     text-align: center;
+}
+
+/* Use a media query for small screens to adjust button layout */
+@media (max-width: 480px) { /* Adjust breakpoint as needed */
+    .prompt .rep-controls button {
+        font-size: 2.5rem; /* Even larger font size for touch targets */
+        width: 55px; /* Adjust width as needed */
+        height: 45px; /* Adjust height as needed */
+    }
+
+    .prompt button {
+        display: block; /* Stack buttons vertically */
+        width: 80%; /* Take up most of the prompt width */
+        margin: 10px auto; /* Center buttons in the prompt */
+    }
 }
