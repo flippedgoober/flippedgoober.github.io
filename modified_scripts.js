@@ -37,13 +37,34 @@ function editSet(element) {
     prompt.className = 'prompt';
     prompt.dataset.elementId = element.id;
     prompt.innerHTML = `
-        <input type="number" id="rep-input" placeholder="Enter reps" autofocus />
+        <div class="prompt-title">Reps</div> <!-- Title for the prompt -->
+        <div class="rep-controls">
+            <button onclick="decreaseReps()">-</button>
+            <span id="rep-count">10</span> <!-- Default reps number -->
+            <button onclick="increaseReps()">+</button>
+        </div>
         <button onclick="cancelEdit()">Cancel</button>
         <button onclick="doneEdit()">Done</button>
     `;
     document.body.appendChild(prompt);
-    document.getElementById('rep-input').focus({ preventScroll: true });
 }
+
+
+function increaseReps() {
+    const repCount = document.getElementById('rep-count');
+    let currentValue = parseInt(repCount.textContent, 10);
+    repCount.textContent = currentValue + 1; // Increase the reps
+}
+
+function decreaseReps() {
+    const repCount = document.getElementById('rep-count');
+    let currentValue = parseInt(repCount.textContent, 10);
+    if (currentValue > 0) {
+        repCount.textContent = currentValue - 1; // Decrease the reps, ensuring it doesn't go below 0
+    }
+}
+
+
 
 function cancelEdit() {
     const prompt = document.querySelector('.prompt');
@@ -64,12 +85,14 @@ function cancelSwap() {
 function doneEdit() {
     const prompt = document.querySelector('.prompt');
     const elementId = prompt.dataset.elementId;
-    const value = document.getElementById('rep-input').value;
+    const repCountElement = document.getElementById('rep-count');
+    const reps = repCountElement.textContent; // Get the current reps from the span
     const element = document.getElementById(elementId);
-    element.textContent = value ? `${value} reps` : 'Insert Reps';
-    cancelEdit();
-    saveWorkoutState();
+    element.textContent = reps + ' reps'; // Update the text content with the new reps
+    cancelEdit(); // Close the prompt
+    saveWorkoutState(); // Save the state
 }
+
 
 function addSet(containerId) {
     const container = document.getElementById(containerId);
@@ -152,11 +175,14 @@ function saveWorkoutState() {
     document.querySelectorAll('.exercise-container').forEach(container => {
         const exerciseHeader = container.querySelector('.exercise-header').textContent.trim();
         const setsReps = container.querySelector('.exercise-instructions').textContent.trim();
-        const setsData = Array.from(container.querySelectorAll('.rep-info')).map(set => set.textContent.trim());
+        const setsData = Array.from(container.querySelectorAll('.rep-info'))
+                                  .filter(repInfo => !repInfo.closest('.add-set'))
+                                  .map(repInfo => repInfo.textContent.trim());
         workoutState.push({ exerciseHeader, setsReps, setsData });
     });
     localStorage.setItem('workoutState', JSON.stringify(workoutState));
 }
+
 
 
 
@@ -177,31 +203,26 @@ function loadWorkoutState() {
 
             exerciseData.setsData.forEach((setData, setIndex) => {
                 // Recreate regular sets
-                if (setData !== '+ Add Set') {
-                    const setElement = document.createElement('li');
-                    setElement.className = 'set';
-                    const repInfo = document.createElement('div');
-                    repInfo.className = 'rep-info';
-                    repInfo.id = `set-${index + 1}-${setIndex + 1}`;
-                    repInfo.textContent = setData;
-                    repInfo.onclick = function() { editSet(this); };
-                    setElement.appendChild(repInfo);
-                    setsContainer.appendChild(setElement);
-                }
+                const setElement = document.createElement('li');
+                setElement.className = 'set';
+                const repInfo = document.createElement('div');
+                repInfo.className = 'rep-info';
+                repInfo.id = `set-${index + 1}-${setIndex + 1}`;
+                repInfo.textContent = setData;
+                repInfo.onclick = function() { editSet(this); };
+                setElement.appendChild(repInfo);
+                setsContainer.appendChild(setElement);
             });
 
-            // Recreate the '+ Add Set' button as the last element
-            const addButtonLi = document.createElement('li');
-            addButtonLi.className = 'set add-set';
-            const addButtonDiv = document.createElement('div');
-            addButtonDiv.className = 'rep-info';
-            addButtonDiv.textContent = '+ Add Set';
-            addButtonDiv.onclick = function() { addSet(setsContainer.id); };
-            addButtonLi.appendChild(addButtonDiv);
-            setsContainer.appendChild(addButtonLi);
+            // Add the '+ Add Set' button here after recreating the sets
+            const addButton = document.createElement('li');
+            addButton.className = 'set add-set';
+            addButton.innerHTML = `<div class="rep-info" onclick="addSet('${setsContainer.id}')">Add Set</div>`;
+            setsContainer.appendChild(addButton);
         });
     }
 }
+
 
 
 
