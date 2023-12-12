@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Workout Tracker</title>
     <link rel="stylesheet" href="modified_styles.css">
 </head>
@@ -13,7 +13,8 @@
       <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="tfl-pulls-header">TFL Pulls</div>
-              <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
+            <button onclick="removeSet(this, 'tfl-pulls-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">4 sets x 5-8 Reps</div>
           <!-- Instructions added here -->
@@ -35,6 +36,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="ring-mu-header">Ring MU</div>
+            <button onclick="removeSet(this, 'ring-mu-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">3-4 Sets</div>
@@ -55,6 +57,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="bar-mu-header">Bar MU</div>
+            <button onclick="removeSet(this, 'bar-mu-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">20-30 Reps</div>
@@ -75,6 +78,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="OAPU-header">1-Arm PU</div>
+            <button onclick="removeSet(this, 'OAPU-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">3-4 Sets</div>
@@ -95,6 +99,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="LSit-HPU-header">L-Sit High PU</div>
+            <button onclick="removeSet(this, 'LSit-HPU-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">3-4 Sets</div>
@@ -115,6 +120,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="PU-header">Pull Ups</div>
+            <button onclick="removeSet(this, 'PU-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">3-4 Sets</div>
@@ -135,6 +141,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="IR-header">Inverted Rows</div>
+            <button onclick="removeSet(this, 'IR-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">3 Sets</div>
@@ -154,7 +161,8 @@
         <!-- Exercise Block for Scapula Pull Ups -->
         <div class="exercise-container">
           <div class="exercise-header-flex">
-            <div class="exercise-header" id="SCPU-header">Scapula Pull Ups</div>
+            <div class="exercise-header" id="SCPU-header">Scap PU</div>
+            <button onclick="removeSet(this, 'SCPU-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">3 Sets</div>
@@ -175,6 +183,7 @@
         <div class="exercise-container">
           <div class="exercise-header-flex">
             <div class="exercise-header" id="STR-header">Skin the Rat</div>
+            <button onclick="removeSet(this, 'STR-sets')" class="remove-set-btn">-</button>
             <button onclick="swapExercise(this)" class="swap-btn">Swap</button>
           </div>
           <div class="exercise-instructions">2 Sets</div>
