@@ -169,14 +169,16 @@ footer {
 
 /* Style for the swap buttons */
 .swap-btn {
-    margin-left: 10px;
-    padding: 5px 10px;
+    margin-left: 5px;
+    padding: 0px 15px;
     background-color: #4CAF50; /* Green background */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.5rem;
+
+
 }
 
 .swap-btn:hover {
@@ -284,7 +286,7 @@ a, button {
 }
 
 .remove-set-btn {
-    margin-right: 10px; /* Space between the remove button and the exercise header */
+    margin-right: 5px; /* Space between the remove button and the exercise header */
     padding: 5px 20px;
     background-color: #D32F2F; /* Red background */
     color: white;
