@@ -42,7 +42,7 @@ function editSet(element) {
         <button onclick="doneEdit()">Done</button>
     `;
     document.body.appendChild(prompt);
-    document.getElementById('rep-input').focus();
+    document.getElementById('rep-input').focus({ preventScroll: true });
 }
 
 function cancelEdit() {
