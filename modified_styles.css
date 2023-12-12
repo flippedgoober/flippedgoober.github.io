@@ -96,6 +96,7 @@ body {
     color: #FFFFFF; /* Text color for the prompt */
     font-family: 'Arial', sans-serif; /* Match body font */
     text-align: center; /* Center the text inside the prompt */
+    font-size: 1.5rem;
 }
 
 /* Styles for the select dropdown within the prompt */
