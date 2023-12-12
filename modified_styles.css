@@ -29,13 +29,13 @@ body {
 /* Exercise header within the container */
 .exercise-header {
     color: #FFFFFF; /* White-ish header text color */
-    font-size: 1.75em; /* Example size for headers */
+    font-size: 2.25rem; /* Example size for headers */
 }
 
 /* Styles for the exercise instructions text */
 .exercise-instructions {
     color: #FFFFFF; /* Same white color as exercise header */
-    font-size: 0.9em; /* Slightly smaller than the exercise title */
+    font-size: 1.25rem; /* Slightly smaller than the exercise title */
     margin-bottom: 25px; /* Spacing between the instructions and the sets */
 }
 
@@ -50,7 +50,7 @@ body {
     list-style: none; /* Remove default list styling */
     position: relative; /* To position the set number */
     padding-left: 40px; /* Make room for the set number */
-    margin-bottom: 10px; /* Space between sets */
+    margin-bottom: 20px; /* Space between sets */
 }
 
 /* Circle-element for the set numbers */
@@ -59,13 +59,14 @@ body {
     position: absolute;
     left: 0; /* Align to the left side */
     top: 0; /* Align to the top of the list item */
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     background-color: #121317; /* Mid gray background color */
     border-radius: 50%; /* Circular shape */
     text-align: center;
-    line-height: 25px; /* Vertically center the text */
+    line-height: 35px; /* Vertically center the text */
     color: #336EFF; /* Blue text */
+    font-size: 1.25rem;
 }
 
 /* Styling for the rounded edge rectangles around the weight x reps x RPE */
@@ -75,8 +76,10 @@ body {
     display: inline-block;
     padding: 5px 10px;
     margin-right: 5px;
+    margin-left : 5px;
     color: #2F63E2; /* Blue text */
     cursor: pointer; /* Indicates clickable element */
+    font-size: 1.35rem;
 }
 
 /* Prompt styling */
@@ -226,4 +229,19 @@ footer {
 /* Ensure the hover and active states are not applied to the list item */
 .set:hover, .set:active {
     background-color: transparent; /* Clear any hover or active state styles */
+}
+
+.add-set:before {
+    content: '+'; /* Display the plus symbol */
+    position: absolute;
+    left: 0; /* Align as needed */
+    top: 0; /* Align as needed */
+    height: 35px; /* Match the size of your set number circles */
+    width: 35px; /* Match the size of your set number circles */
+    background-color: #121317; /* Consistent with your other circles */
+    border-radius: 50%; /* Circular shape */
+    text-align: center;
+    line-height: 35px; /* Vertically center the '+' symbol */
+    color: #336EFF; /* Consistent text color */
+    font-size: 20px; /* Adjust font size as needed */
 }
