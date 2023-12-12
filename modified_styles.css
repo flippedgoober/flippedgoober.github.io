@@ -280,15 +280,25 @@ footer {
 
 /* Use a media query for small screens to adjust button layout */
 @media (max-width: 480px) { /* Adjust breakpoint as needed */
+
+  .prompt {
+      width: 90%; /* Increase the width on small screens to use more of the screen */
+      min-width: auto; /* Override the min-width for small screens if necessary */
+      padding: 20px; /* Ensure enough padding so that content does not touch the edges */
+      box-sizing: border-box; /* Padding and border are included in the width */
+  }
+
     .prompt .rep-controls button {
         font-size: 2.5rem; /* Even larger font size for touch targets */
         width: 55px; /* Adjust width as needed */
-        height: 45px; /* Adjust height as needed */
+        height: 55px; /* Adjust height as needed */
+        margin: 0 15px; /* Increase margin for better spacing */
+        padding: 10px; /* Increase padding for a larger clickable area */
     }
 
     .prompt button {
-        display: block; /* Stack buttons vertically */
-        width: 80%; /* Take up most of the prompt width */
-        margin: 10px auto; /* Center buttons in the prompt */
+        padding: 10px 20px; /* Increase padding for a larger clickable area */
+        margin: 10px 5px; /* Ensure enough margin so that buttons do not touch each other */
+        min-width: 100px; /* Minimum width to keep buttons from becoming too narrow */
     }
 }
