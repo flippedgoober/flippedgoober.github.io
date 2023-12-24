@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workout Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main-content">
+      <!-- Exercise Block for Handstand Hold -->
+      <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="HSH-header">HS Hold</div>
+            <button onclick="removeSet(this, 'HSH-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">Acquire 2:00</div>
+          <!-- Instructions added here -->
+          <ul class="sets-container" id="HSH-sets">
+              <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+              <li class="set">
+                <div id="HSH-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+              </li>
+              <!-- The '+ add' button -->
+              <li class="set add-set">
+                  <div class="rep-info" onclick="addSet('HSH-sets')">Add Set</div>
+              </li>
+          </ul>
+         <!-- Timer -->
+         <div class="bottom-button-container">
+             <button onclick="showTimerPrompt(this, 'timer-HSH')" class="timer-button" id="timer-HSH"></button>
+         </div>
+      </div>
+
+        <!-- Exercise Block for Freestanding HSPU -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="FHSPU-header">HSPU</div>
+            <button onclick="removeSet(this, 'FHSPU-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">20-25 Reps</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="FHSPU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="FHSPU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info"  onclick="addSet('FHSPU-sets')">Add Set</div>
+                </li>
+            </ul>
+            <!-- Timer -->
+            <div class="bottom-button-container">
+                <button onclick="showTimerPrompt(this, 'timer-HSPU')" class="timer-button" id="timer-HSPU"></button>
+            </div>
+        </div>
+
+        <!-- Exercise Block for Wall HSPU -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="WHSPU-header">Wall HSPU</div>
+            <button onclick="removeSet(this, 'WHSPU-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">3-4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="WHSPU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="WHSPU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('WHSPU-sets')">Add Set</div>
+                </li>
+            </ul>
+            <div class="bottom-button-container">
+                  <button onclick="showTimerPrompt(this, 'timer-WHSPU')" class="timer-button" id="timer-WHSPU"></button>
+            </div>
+        </div>
+
+        <!-- Exercise Block for Iron Cross Holds -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="IC-header">Iron Cross</div>
+            <button onclick="removeSet(this, 'IC-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">3-4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="IC-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="IC-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('IC-sets')">Add Set</div>
+                </li>
+            </ul>
+            <div class="bottom-button-container">
+                <button onclick="showTimerPrompt(this, 'timer-IC')" class="timer-button" id="timer-IC"></button>
+            </div>
+        </div>
+
+        <!-- Exercise Block for Planche PU -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="PPU-header">Pseudo-Planche PU</div>
+            <button onclick="removeSet(this, 'PPU-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="PPU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="PPU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('PPU-sets')">Add Set</div>
+                </li>
+            </ul>
+            <div class="bottom-button-container">
+                <button onclick="showTimerPrompt(this, 'timer-PPU')" class="timer-button" id="timer-PPU"></button>
+            </div>
+        </div>
+
+        <!-- Exercise Block for Planche Leans -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="PL-header">Planche Leans</div>
+            <button onclick="removeSet(this, 'PL-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">4 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="PL-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="PL-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('PL-sets')">Add Set</div>
+                </li>
+            </ul>
+            <div class="bottom-button-container">
+                <button onclick="showTimerPrompt(this, 'timer-PL')" class="timer-button" id="timer-PL"></button>
+            </div>
+        </div>
+
+        <!-- Exercise Block for Ring Dips -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="RD-header">Ring Dips</div>
+            <button onclick="removeSet(this, 'RD-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">3 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="RD-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="RD-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('RD-sets')">Add Set</div>
+                </li>
+            </ul>
+            <div class="bottom-button-container">
+                <button onclick="showTimerPrompt(this, 'timer-RD')" class="timer-button" id="timer-RD"></button>
+            </div>
+        </div>
+
+        <!-- Exercise Block for Push Ups -->
+        <div class="exercise-container">
+          <div class="exercise-header-flex">
+            <div class="exercise-header" id="PushU-header">Push Ups</div>
+            <button onclick="removeSet(this, 'PushU-sets')" class="remove-set-btn">-</button>
+            <button onclick="swapExercise(this)" class="swap-btn">⟳</button>
+          </div>
+          <div class="exercise-instructions">3 Sets</div>
+          <!-- Instructions added here -->
+            <ul class="sets-container" id="PushU-sets">
+                <!-- Automatically numbered sets with 'Insert Reps' placeholder -->
+                <li class="set">
+                  <div id="PushU-set-1" class="rep-info" onclick="editSet(this)">Insert Reps</div>
+                </li>
+                <!-- The '+ add' button -->
+                <li class="set add-set">
+                    <div class="rep-info" onclick="addSet('PushU-sets')">Add Set</div>
+                </li>
+            </ul>
+            <div class="bottom-button-container">
+                <button onclick="showTimerPrompt(this, 'timer-PushU')" class="timer-button" id="timer-PushU"></button>
+            </div>
+        </div>
+
+
+        <!-- Button Group for Reset and Return -->
+        <div class="button-group">
+            <button id="reset-button">Reset</button>
+            <a href="index.html" class="button return-button">Return</a>
+        </div>
+        <!-- Add more exercises as needed -->
+    </div>
+
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>
+
+
+
+    </div>

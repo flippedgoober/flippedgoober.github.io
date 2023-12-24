@@ -1,0 +1,31 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #121317; /* Dark background color */
+    color: #FFFFFF; /* White-ish text color */
+    text-align: center; /* Center align the content */
+}
+
+.landing-container {
+    max-width: 600px; /* Max width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.landing-button {
+    background-color: #336EFF; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 4px;
+    display: inline-block; /* Align buttons side by side */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.landing-button:hover {
+    background-color: #1d1f25; /* Darker background on hover */
+}

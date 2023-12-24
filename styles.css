@@ -1,0 +1,409 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font setup */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #121317; /* Dark background color */
+    color: #5395fc; /* Blueish fill-in text color */
+}
+
+/* Main content styles */
+.main-content {
+    padding: 10px;
+    color: #5395fc; /* Blueish fill-in text color */
+}
+
+/* Container for the exercise section */
+.exercise-container {
+    background: #20232a; /* Darker gray background color */
+    border-radius: 10px; /* Rounded corners for the container */
+    padding: 15px;
+    margin-bottom: 20px; /* Space between containers */
+}
+
+/* Exercise header within the container */
+.exercise-header {
+    color: #FFFFFF; /* White-ish header text color */
+    font-size: 2rem; /* Example size for headers */
+}
+
+/* Styles for the exercise instructions text */
+.exercise-instructions {
+    color: #FFFFFF; /* Same white color as exercise header */
+    font-size: 1.5rem; /* Slightly smaller than the exercise title */
+    margin-bottom: 25px; /* Spacing between the instructions and the sets */
+}
+
+/* Styles for the overall container of sets */
+.sets-container {
+    counter-reset: set-counter; /* Create a new instance of the counter */
+}
+
+/* Style each set as a list item */
+.set {
+    counter-increment: set-counter; /* Increment the counter for each set */
+    list-style: none; /* Remove default list styling */
+    position: relative; /* To position the set number */
+    padding-left: 40px; /* Make room for the set number */
+    margin-bottom: 20px; /* Space between sets */
+}
+
+/* Circle-element for the set numbers */
+.set:before {
+    content: counter(set-counter); /* Display the current counter number */
+    position: absolute;
+    left: 0; /* Align to the left side */
+    top: 0; /* Align to the top of the list item */
+    height: 45px;
+    width: 45px;
+    background-color: #121317; /* Mid gray background color */
+    border-radius: 50%; /* Circular shape */
+    text-align: center;
+    line-height: 45px; /* Vertically center the text */
+    color: #5395fc; /* Blue text */
+    font-size: 2rem;
+}
+
+/* Styling for the rounded edge rectangles around the weight x reps x RPE */
+.rep-info {
+    background-color: #121317; /* Dark background color */
+    border-radius: 10px; /* Rounded corners for the rep info */
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-left : 25px;
+    color: #5395fc; /* Blue text */
+    cursor: pointer; /* Indicates clickable element */
+    font-size: 1.75rem;
+}
+
+/* Prompt styling */
+.prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #20232a; /* Matching exercise container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Make sure it's on top of other elements */
+    color: #FFFFFF; /* Text color for the prompt */
+    font-family: 'Arial', sans-serif; /* Match body font */
+    text-align: center; /* Center the text inside the prompt */
+    font-size: 1.5rem;
+}
+
+/* Styles for the select dropdown within the prompt */
+.prompt select {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #121317; /* Dark background color */
+    color: #2F63E2; /* Blue text color */
+    border: 1px solid #336EFF; /* Blue border */
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%; /* Make the dropdown full width within the prompt */
+    -webkit-appearance: none; /* Removes default styling in WebKit browsers */
+    -moz-appearance: none; /* Removes default styling in Firefox */
+}
+
+/* Optionally, add a custom arrow indicator for the select dropdown */
+.prompt select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232F63E2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px top 50%;
+    background-size: 12px;
+}
+
+/* Styles for the number input within the prompt */
+.prompt input[type="number"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #121317; /* Darker background for input */
+    color: #2F63E2; /* Blue text color to match the scheme */
+    border: 1px solid #336EFF; /* Blue border to match the scheme */
+    border-radius: 4px;
+    font-size: 1em;
+    -moz-appearance: textfield; /* Removes spinner in Firefox */
+}
+
+.prompt input[type="number"]::-webkit-outer-spin-button,
+.prompt input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Removes spinner in Chrome, Edge, and Safari */
+}
+
+/* Styles for buttons within the prompt */
+.prompt button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #336EFF; /* Blue background for buttons */
+    color: #FFFFFF; /* White text color for buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+
+/* Footer styles */
+footer {
+    background: #20232a; /* Dark gray footer background color */
+    color: #FFFFFF; /* White-ish footer text color */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Style for the swap buttons */
+.swap-btn {
+    margin-left: 5px;
+    padding: 0px 15px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.5rem;
+
+
+}
+
+.swap-btn:hover {
+    background-color: #45a049;
+}
+
+.exercise-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exercise-header {
+    flex-grow: 1;
+}
+
+/* Specific styles for the .add-set list item */
+.add-set {
+    display: flex; /* Use flex layout to align the button to the left */
+    justify-content: flex-start; /* Align the button to the left */
+}
+
+/* Styles for the .rep-info within .add-set to ensure correct styling and functionality */
+.add-set .rep-info {
+    cursor: pointer; /* Ensure the cursor changes to pointer only over the button */
+    padding: 5px 10px; /* Adjust padding as needed */
+}
+
+.add-set .rep-info:active {
+    background-color: #1d1f25; /* Darker background color for active state */
+    color: #4574e5; /* Lighter text color for active state */
+}
+
+/* Hover and active states for .rep-info and .add-set buttons */
+/*.rep-info:hover, .add-set:hover {
+    background-color: #1d1f25; /* Example hover color */
+/*    color: #4574e5; /* Example hover text color */
+/*}*/
+
+.rep-info:active, .add-set:active {
+    background-color: #1d1f25; /* Darker background color for active state */
+    color: #4574e5; /* Lighter text color for active state */
+}
+
+/* Ensure the hover and active states are not applied to the list item */
+.set:hover, .set:active {
+    background-color: transparent; /* Clear any hover or active state styles */
+}
+
+.add-set:before {
+    content: '+'; /* Display the plus symbol */
+    position: absolute;
+    left: 0; /* Align as needed */
+    top: 0; /* Align as needed */
+    height: 45px; /* Match the size of your set number circles */
+    width: 45px; /* Match the size of your set number circles */
+    background-color: #121317; /* Consistent with your other circles */
+    border-radius: 50%; /* Circular shape */
+    text-align: center;
+    line-height: 45px; /* Vertically center the '+' symbol */
+    color: #5395fc; /* Consistent text color */
+    font-size: 2rem; /* Adjust font size as needed */
+}
+
+.prompt .rep-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0; /* Adjust spacing as needed */
+}
+
+.prompt .rep-controls button {
+    background-color: transparent; /* Default background is transparent */
+    font-size: 2.5rem; /* Adjust size as needed */
+    width: 55px; /* Adjust width as needed */
+    height: 45px; /* Adjust height as needed */
+    line-height: 30px; /* Center the text vertically */
+    margin: 0 10px; /* Space out the buttons */
+    border-radius: 10px;
+    /* Additional styling for buttons (background, color, border, etc.) */
+}
+
+.prompt .rep-controls #rep-count {
+    font-size: 2.5rem; /* Match the button text size */
+    min-width: 50px; /* Adjust width as needed */
+    text-align: center;
+    /* Additional styling for the rep count (color, etc.) */
+}
+
+.prompt .prompt-title {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    color: #FFFFFF; /* Adjust the color as needed */
+    margin-bottom: -10px; /* Space between the title and the rep controls */
+    text-align: center;
+}
+
+a, button {
+    touch-action: manipulation;
+}
+
+.remove-set-btn {
+    margin-right: 5px; /* Space between the remove button and the exercise header */
+    padding: 5px 20px;
+    background-color: #D32F2F; /* Red background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.remove-set-btn:hover {
+    background-color: #C62828; /* Darker red on hover */
+}
+
+/* Styles for the reset button */
+#reset-button{
+    background-color: #336EFF; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#reset-button:hover{
+    background-color: #1d1f25; /* Darker background on hover */
+}
+
+.button-group {
+    text-align: center;
+    /* Add any additional styling needed for alignment */
+}
+
+.button-group {
+    text-align: center;
+    /* Add any additional styling needed for alignment */
+}
+
+.return-button {
+    background-color: #336EFF; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px;
+    margin-left: 10px; /* Space from the Reset button */
+    display: inline-block; /* Align with the Reset button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.return-button:hover {
+    background-color: #1d1f25; /* Darker background on hover */
+}
+
+.timer-button {
+    background: url('clock.png') no-repeat center center; /* Path to your image */
+    background-size: 500%; /* Ensure the image fits within the button */
+    color:#5395fc;
+    margin-top: -40px;
+    margin-bottom: -40px;
+    margin-right: 15px;
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor indicates clickable */
+    font-size: 2rem;
+    width: 50px; /* Set the width you want for your button */
+    height: 50px; /* Set the height you want for your button */
+    display: inline-block; /* Ensure it's inline-block */
+    text-align: center; /* Center the text/icon */
+    /* Adjust width and height as needed to match your design */
+}
+
+
+.bottom-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns children to the right */
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+.prompt .close-prompt {
+    position: absolute;
+    top: -10px; /* Half the height of the button (assuming the button is 20px tall) */
+    right: -40px; /* Half the width of the button (assuming the button is 20px wide) */
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.timer-prompt {
+    padding-top: 40px!important; /* Add extra padding at the top for the timer prompt */
+}
+
+.timer-prompt .timer-display {
+    font-size: 3.5rem; /* Larger font size for visibility */
+    margin-bottom: 20px; /* More space between the timer display and the buttons */
+    text-align: center;
+    color: white;
+}
+
+
+/* Use a media query for small screens to adjust button layout */
+@media (max-width: 480px) { /* Adjust breakpoint as needed */
+
+  .prompt {
+      width: 90%; /* Increase the width on small screens to use more of the screen */
+      min-width: auto; /* Override the min-width for small screens if necessary */
+      padding: 20px; /* Ensure enough padding so that content does not touch the edges */
+      box-sizing: border-box; /* Padding and border are included in the width */
+  }
+
+    .prompt .rep-controls button {
+        font-size: 2.5rem; /* Even larger font size for touch targets */
+        height: 85px; /* Adjust height as needed */
+        width: 75px;
+        margin: 0 15px; /* Increase margin for better spacing */
+        padding: 10px; /* Increase padding for a larger clickable area */
+        box-sizing: border-box; /* Include padding and border in width and height */
+        min-width: 0; /* Remove minimum width constraint */
+    }
+
+    .prompt button {
+        padding: 10px 20px; /* Increase padding for a larger clickable area */
+        margin: 10px 10px; /* Ensure enough margin so that buttons do not touch each other */
+        min-width: 120px; /* Minimum width to keep buttons from becoming too narrow */
+    }
+}
