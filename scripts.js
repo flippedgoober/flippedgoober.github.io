@@ -192,18 +192,25 @@ function saveWorkoutState() {
         const exerciseHeader = container.querySelector('.exercise-header').textContent.trim();
         const setsReps = container.querySelector('.exercise-instructions').textContent.trim();
         const setsData = Array.from(container.querySelectorAll('.rep-info'))
-                                  .filter(repInfo => !repInfo.closest('.add-set'))
-                                  .map(repInfo => repInfo.textContent.trim());
+                              .filter(repInfo => !repInfo.closest('.add-set'))
+                              .map(repInfo => repInfo.textContent.trim());
         workoutState.push({ exerciseHeader, setsReps, setsData });
     });
-    localStorage.setItem('workoutState', JSON.stringify(workoutState));
+
+    // Determine the page name and use it as part of the storage key
+    const pageName = window.location.pathname.split('/').pop().split('.').shift();
+    localStorage.setItem(pageName + '_workoutState', JSON.stringify(workoutState));
 }
 
 
 
 
+
 function loadWorkoutState() {
-    const savedState = localStorage.getItem('workoutState');
+    // Determine the page name and use it as part of the storage key
+    const pageName = window.location.pathname.split('/').pop().split('.').shift();
+    const savedState = localStorage.getItem(pageName + '_workoutState');
+
     if (savedState) {
         const workoutState = JSON.parse(savedState);
         workoutState.forEach((exerciseData, index) => {
@@ -218,7 +225,6 @@ function loadWorkoutState() {
             setsContainer.innerHTML = '';
 
             exerciseData.setsData.forEach((setData, setIndex) => {
-                // Recreate regular sets
                 const setElement = document.createElement('li');
                 setElement.className = 'set';
                 const repInfo = document.createElement('div');
@@ -230,7 +236,7 @@ function loadWorkoutState() {
                 setsContainer.appendChild(setElement);
             });
 
-            // Add the '+ Add Set' button here after recreating the sets
+            // Add the '+ Add Set' button
             const addButton = document.createElement('li');
             addButton.className = 'set add-set';
             addButton.innerHTML = `<div class="rep-info" onclick="addSet('${setsContainer.id}')">Add Set</div>`;
@@ -238,7 +244,6 @@ function loadWorkoutState() {
         });
     }
 }
-
 
 
 
@@ -306,22 +311,23 @@ function startTimer(timerId) {
     let timerState = timersState[timerId];
     if (timerState.timerInterval) return; // Prevent multiple timers
 
-    // Reset the elapsed seconds to start counting from zero
-    timerState.elapsedSeconds = 0;
-    const timerButton = document.getElementById(timerId);
-    timerButton.style.background = 'none'; // Hide the clock image
+    const startTime = Date.now() - timerState.elapsedSeconds * 1000;
+    localStorage.setItem(timerId + '_startTime', startTime);
 
-    // Immediately update the timer display to "0:00"
+    // Hide the clock image and update the display immediately
+    const timerButton = document.getElementById(timerId);
+    timerButton.style.background = 'none';
     updateTimerDisplay(timerId);
 
     timerState.timerInterval = setInterval(() => {
-        timerState.elapsedSeconds++;
+        timerState.elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
         updateTimerDisplay(timerId);
         if (timerState.elapsedSeconds >= 3600) { // 59:59 limit
             stopTimer(timerId);
         }
     }, 1000);
 }
+
 
 
 function stopTimer(timerId) {
@@ -344,6 +350,7 @@ function clearTimer(timerId) {
         // Reset the background to show the clock image again at the right size
         timerButton.style.background = "url('clock.png') no-repeat center center";
         timerButton.style.backgroundSize = '500%';
+        localStorage.removeItem(timerId + '_startTime');
     }
 }
 
@@ -374,3 +381,14 @@ function closePrompt() {
         activePrompt = false;
     }
 }
+
+window.onload = function() {
+    for (let timerId in timersState) {
+        let savedStartTime = localStorage.getItem(timerId + '_startTime');
+        if (savedStartTime) {
+            let elapsed = Math.floor((Date.now() - savedStartTime) / 1000);
+            timersState[timerId].elapsedSeconds = elapsed;
+            startTimer(timerId); // Continue the timer
+        }
+    }
+};
